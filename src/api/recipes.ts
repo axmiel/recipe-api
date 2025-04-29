@@ -1,11 +1,13 @@
 import express from 'express';
 
 import MessageResponse from '../interfaces/MessageResponse';
-import emojis from './emojis';
-import recipeRouter from './recipes';
 import { Recipe } from '../models/recipe';
 
 const router = express.Router();
-router.use('/recipes', recipeRouter)
+
+router.get('/', async (req, res) => {
+  const recipe = await Recipe.find({}).exec()
+  res.json(recipe)
+});
 
 export default router;
