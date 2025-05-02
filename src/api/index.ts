@@ -1,11 +1,8 @@
-import express from 'express';
+import express from "express";
 
-import MessageResponse from '../interfaces/MessageResponse';
-import emojis from './emojis';
-import recipeRouter from './recipes';
-import { Recipe } from '../models/recipe';
+import recipeRouter from "./recipes";
 
 const router = express.Router();
-router.use('/recipes', recipeRouter)
+router.use("/recipes", recipeRouter);
 
 export default router;
