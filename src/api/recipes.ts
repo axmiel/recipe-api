@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   const query = {}
 
   if (prep_time) {
-    query.prep_time = { $lt: Number(prep_time) }
+    query.prep_time = { $lt: Number(prep_time + 1) }
   }
 
   if (category) {
