@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
 
   if (prep_time) {
     query.prep_time = { $lt: Number(prep_time) }
-    console.log('query prep time')
   }
 
   if (category) {
