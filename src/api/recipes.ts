@@ -6,27 +6,27 @@ import { Recipe } from "../models/recipe";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const { prep_time, category, cuisine } = req.query;
-  
-  const query = {}
+  const { prepTime, category, cuisine } = req.query;
 
-  if (prep_time) {
-    query.prep_time = { $lte: Number(prep_time) }
+  const query = {};
+
+  if (prepTime) {
+    query.prep_time = { $lte: Number(prepTime) };
   }
 
   if (category) {
-    const categoriesArray = category.split(',')
-    query.category = { $in: categoriesArray }
+    const categoriesArray = category.split(",");
+    query.category = { $in: categoriesArray };
   }
 
   if (cuisine) {
-    const cuisinesArray = cuisine.split(',')
-    query.cuisine = { $in: cuisinesArray }
+    const cuisinesArray = cuisine.split(",");
+    query.cuisine = { $in: cuisinesArray };
   }
 
   const recipes = await Recipe.find(query).exec();
   res.json(recipes);
-})
+});
 
 router.get("/:id", async (req, res) => {
   const recipeId = req.params.id;
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
   res.json(recipe);
 });
 
-router.post("/", async (req, res) => {
+router.post(",", async (req, res) => {
   //const recipe = await Recipe.create(recipeId).exec()
   const newRecipeData = req.body;
   res.json(newRecipeData);
