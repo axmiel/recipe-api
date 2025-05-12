@@ -34,6 +34,12 @@ router.get("/:id", async (req, res) => {
   res.json(recipe);
 });
 
+router.post("", async (req, res) => {
+  //const recipe = await Recipe.create(recipeId).exec()
+  const newRecipeData = req.body;
+  res.json(newRecipeData);
+});
+
 router.post(",", async (req, res) => {
   //const recipe = await Recipe.create(recipeId).exec()
   const newRecipeData = req.body;
