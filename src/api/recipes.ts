@@ -6,12 +6,12 @@ import { Recipe } from "../models/recipe";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const { prepTime, category, cuisine } = req.query;
+  const { prep_time, category, cuisine } = req.query;
 
   const query = {};
 
-  if (prepTime) {
-    query.prep_time = { $lte: Number(prepTime) };
+  if (prep_time) {
+    query.prep_time = { $lte: Number(prep_time) };
   }
 
   if (category) {
