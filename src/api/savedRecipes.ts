@@ -10,11 +10,9 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  
-});
-
-router.post(",", async (req, res) => {
-  
+  const newSavedRecipe = await SavedRecipe.create(req.body)
+  console.log(newSavedRecipe)
+  res.json(newSavedRecipe)
 });
 
 export default router;
